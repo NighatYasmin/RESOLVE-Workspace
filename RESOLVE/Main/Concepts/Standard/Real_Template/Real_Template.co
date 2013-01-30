@@ -1,0 +1,85 @@
+(*
+ * This softare is released under the new BSD 2006 license.
+ * 
+ * Note the new BSD license is equivalent to the MIT License, except for the
+ * no-endorsement final clause.
+ * 
+ * Copyright (c) 2007, Clemson University
+ * 
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ * 
+ *   * Redistributions of source code must retain the above copyright notice,
+ *     this list of conditions and the following disclaimer. 
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution. 
+ *   * Neither the name of the Clemson University nor the names of its
+ *     contributors may be used to endorse or promote products derived from
+ *     this software without specific prior written permission. 
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+ * OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ * This sofware has been developed by past and present members of the
+ * Reusable Sofware Research Groups (RSRG) at Clemson University and
+ * The Ohio State University.
+ *)
+
+
+Concept Real_Template;
+    uses Real_Theory, Std_Boolean_Fac;
+
+    Type Family Real is modeled by R;
+        exemplar i;
+        initialization ensures i = Real_0;
+
+    Operation Is_Zero(evaluates i: Real): Boolean;
+        ensures	Is_Zero = ( i = Real_0 );
+
+    Operation Is_Not_Zero(evaluates i: Real): Boolean;
+        ensures	Is_Not_Zero = ( i /= Real_0 );
+
+    Operation Less_Or_Equal(evaluates i, j: Real): Boolean;
+        ensures	Less_Or_Equal = ( i <= j );
+
+    Operation Less(evaluates i, j: Real): Boolean;
+        ensures Less = ( i < j );
+
+    Operation Greater(evaluates i, j: Real): Boolean;
+        ensures Greater = ( i > j );
+
+    Operation Greater_Or_Equal(evaluates i, j: Real): Boolean;
+        ensures Greater_Or_Equal = ( i >= j );
+
+    Operation Sum(evaluates i, j: Real): Real;
+        ensures	Sum = ( i + j );
+
+    Operation Difference(evaluates i, j: Real): Real;
+        ensures Difference = ( i - j );
+
+    Operation Product(evaluates i, j: Real): Real;
+        ensures Product = ( i * j );
+
+    Operation Power(evaluates i, j: Real): Real;
+        ensures Power = ( i**j );
+
+
+    Operation Read(replaces i: Real);
+
+    Operation Write(evaluates i: Real);
+
+    Operation Write_Line(evaluates i: Real);
+
+end Real_Template;
