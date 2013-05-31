@@ -16,6 +16,7 @@ Profile SSC short_for Space_Conscious for Stack_Template;
 	Definition F_Dur(e : Entity) : R;
 	Definition F_IV_Dur(e : Entity) : R;
 	Definition Cnts_Dur(s : Str(Entry)) : R; 
+
 	Definition (i: Z) - (j: N): Z = 0;
 
     Type Family Stack is modeled by Str( Entry );
