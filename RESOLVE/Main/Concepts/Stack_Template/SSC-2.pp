@@ -1,5 +1,5 @@
 Profile SSC short_for Space_Conscious for Stack_Template;
-	uses Real_Theory;
+	uses Real_Number_Theory;--, Duration_Basics_Theory;
 
 	Definition SSCI1: R = Real_0; 
 	Definition SSCI2: R = Real_0; 
@@ -12,8 +12,13 @@ Profile SSC short_for Space_Conscious for Stack_Template;
 	Definition SSCC1: R = Real_0; 
 	Definition SSCC2: R = Real_0; 
 
+	Definition I_Dur(e : Entity) : R;
+	Definition F_Dur(e : Entity) : R;
+	Definition F_IV_Dur(e : Entity) : R;
+	Definition Cnts_Dur(s : Str(Entry)) : R; 
+	
+	Definition (i: Z) - (j: N): Z = 0;
 
-	Definition Cnts_Dur: Str( Entry) = empty_string; 
 
     Type Family Stack is modeled by Str( Entry );
 

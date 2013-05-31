@@ -1,4 +1,5 @@
 Realization Do_Nothing_Realiz with_profile DNSSC for Do_Nothing_Capability of Stack_Template;
+
 	Procedure Do_Nothing(restores S: Stack);
 		Var Next_Entry: Entry;
 

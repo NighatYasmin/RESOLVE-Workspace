@@ -16,8 +16,7 @@ Profile SSC short_for Space_Conscious for Stack_Template;
 	Definition F_Dur(e : Entity) : R;
 	Definition F_IV_Dur(e : Entity) : R;
 	Definition Cnts_Dur(s : Str(Entry)) : R; 
-	Definition Is_init(e : Entity) : B;
-
+	
 	Definition (i: Z) - (j: N): Z = 0;
 
     Type Family Stack is modeled by Str( Entry );
@@ -26,14 +25,16 @@ Profile SSC short_for Space_Conscious for Stack_Template;
 		duration  SSCI1 + (SSCI2 + I_Dur(Entry)) * Max_Depth;
 
         finalization 
-		duration  SSCF1 + Cnts_Dur( #S) + ( SSCF2 + F_IV_Dur(Entry) ) * ( Max_Depth - |#S| );
+	 duration  SSCF1 + Cnts_Dur( #S) + ( SSCF2 + F_IV_Dur(Entry) ) * ( Max_Depth - |#S| );
 
-      Oper Push( clears E: Entry; updates S: Stack );
+   --   Oper Push( clears E: Entry; updates S: Stack );
+      Oper Push( alters E: Entry; updates S: Stack );
 	duration  SSCPu;
 
       Oper Pop( replaces R: Entry; updates S: Stack );
-	ensures  Entry.Is_init (R);	
+	ensures  Entry.Is_Initial(R);	
 	  duration  ( SSCPo + I_Dur(Entry) ) + F_Dur (#R);
+--	  duration  ( SSCPo + Entry.I_Dur ) + F_Dur (#R);
 
 
       Oper Depth( restores S: Stack ): Integer;
