@@ -8,7 +8,7 @@ Concept Stack_Template(type Entry; evaluates Max_Depth: Integer);
         initialization ensures S = Empty_String;
 	end;
 
-    Operation Push(alters E: Entry; updates S: Stack); 
+    Operation Push(clears E: Entry; updates S: Stack); 
         requires |S| < Max_Depth;
         ensures  S = <#E> o #S;
 

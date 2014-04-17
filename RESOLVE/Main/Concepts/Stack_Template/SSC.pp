@@ -27,24 +27,23 @@ Profile SSC short_for Space_Conscious for Stack_Template;
         finalization 
 	 duration  SSCF1 + Cnts_Dur( #S) + ( SSCF2 + F_IV_Dur(Entry) ) * ( Max_Depth - |#S| );
 
-   --   Oper Push( clears E: Entry; updates S: Stack );
+  --   Oper Push( clears E: Entry; updates S: Stack );
       Oper Push( alters E: Entry; updates S: Stack );
-	duration  SSCPu;
+		ensures  Entry.Is_Initial(E);
+		duration  SSCPu;
 
       Oper Pop( replaces R: Entry; updates S: Stack );
-	ensures  Entry.Is_Initial(R);	
-	  duration  ( SSCPo + I_Dur(Entry) ) + F_Dur (#R);
---	  duration  ( SSCPo + Entry.I_Dur ) + F_Dur (#R);
-
+	  	duration  ( SSCPo + I_Dur(Entry) ) + F_Dur (#R);
 
       Oper Depth( restores S: Stack ): Integer;
-	duration  SSCDp;
+		duration  SSCDp;
 
       Oper Rem_Capacity( restores S: Stack ): Integer;
-        duration  SSCRc;
+        	duration  SSCRc;
 
       Oper Clear( clears S: Stack );	
-	duration  SSCC1 + Cnts_Dur( #S ) + ( SSCC2 + F_IV_Dur(Entry) ) * ( Max_Depth -|#S| );
+		duration  SSCC1 + Cnts_Dur( #S ) + 
+			(SSCC2 + F_IV_Dur(Entry)) * ( Max_Depth -|#S| );
 
 end SSC;
 

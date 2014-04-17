@@ -4,3 +4,4 @@ Enhancement Int_Do_Nothing_Capability for Integer_Template;
 		requires (I + 1 <= max_int);
 
 end Int_Do_Nothing_Capability;
+

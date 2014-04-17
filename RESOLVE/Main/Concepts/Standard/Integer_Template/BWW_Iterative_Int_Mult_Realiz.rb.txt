@@ -1,15 +1,26 @@
-Realization BWW_Iterative_Int_Mult_Realiz for BWW_Int_Mult_Capability of Integer_Template;
+Realization BWW_Iterative_Int_Mult_Realiz with_profile BWWIIMP for BWW_Int_Mult_Capability of Integer_Template;
 
 	Procedure Multiply(clears i: Integer; updates j: Integer);
-		Var s, z: Integer;
+		Var s, z, I1, I2, J1, S1, Z1, Z2: Integer;
+		Var invkCond : Boolean;
+		I1 := i;
+		Z1 := z;
+		invkCond := Greater(I1, Z1);
 
-		While (Greater(i, z))
-			changing i, s;
-			maintaining (s + i * #j = #i * #j) and (i >= 0);
+		While (invkCond)
+			changing i, s, invkCond, I1, I2, J1, S1, Z1, Z2;
+		--	maintaining (s + i * #j = #i * #j) and (i >= 0);
 			decreasing i;
+			elapsed_time (#i - i) * (4 * ITP_Replica + 
+				             ITP_Sum + ITP_Decr + ITP_Gr); 
 		do
-		        s := Sum(s,j);
+			S1 := s;
+			J1 := j;
+			s := Sum(S1, J1);
 			Decrement(i);
+			I2 := i;
+			Z2 := z;
+			invkCond := Greater(I2, Z2);
 		end; 
 		j :=: s;
 	end Multiply; 
