@@ -26,6 +26,7 @@ Profile SSC short_for Space_Conscious for Stack_Template;
 
         finalization 
 	 duration  SSCF1 + Cnts_Dur( #S) + ( SSCF2 + F_IV_Dur(Entry) ) * ( Max_Depth - |#S| );
+    end;
 
   --   Oper Push( clears E: Entry; updates S: Stack );
       Oper Push( alters E: Entry; updates S: Stack );
