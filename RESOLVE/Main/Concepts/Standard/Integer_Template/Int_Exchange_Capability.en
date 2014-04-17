@@ -1,0 +1,7 @@
+Enhancement Int_Exchange_Capability for Integer_Template;
+
+	Operation Exchange(updates I: Integer; 
+						updates J: Integer);
+        ensures I = #J and J = #I;
+
+end Int_Exchange_Capability;

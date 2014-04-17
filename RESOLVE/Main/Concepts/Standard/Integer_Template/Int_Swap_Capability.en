@@ -1,0 +1,6 @@
+Enhancement Int_Swap_Capability for Integer_Template;
+
+    Operation Swap(updates i: Integer; updates j: Integer);
+        ensures	i = #j and j = #i;
+
+end Int_Swap_Capability;

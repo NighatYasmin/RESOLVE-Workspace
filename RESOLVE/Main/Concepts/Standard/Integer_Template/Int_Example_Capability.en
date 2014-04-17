@@ -1,0 +1,10 @@
+Enhancement Int_Example_Capability for Integer_Template;
+	uses Integer_Theory;
+	Definition 2: Z;
+
+	Operation Example(updates I: Integer);
+		requires (min_int <= I) and (I <= max_int);
+		ensures I = #I/2;
+
+end Int_Example_Capability;
+

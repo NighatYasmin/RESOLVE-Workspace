@@ -1,0 +1,9 @@
+Enhancement Halving_Capability for Integer_Template;
+	uses Integer_Theory;
+	Definition 2: Z;
+
+	Operation Halve(updates I: Integer);
+		ensures I = #I/2;
+
+end Halving_Capability ;
+

@@ -1,0 +1,9 @@
+Enhancement Int_Incr_Divide_Capability for Integer_Template;
+	uses Integer_Theory;
+	Definition 2: Z;
+
+	Operation Incr_Divide(evaluates I: Integer);
+		ensures I = #I/2;
+
+end Int_Incr_Divide_Capability;
+
